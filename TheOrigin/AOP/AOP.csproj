@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F55C7D9F-D3F8-4503-B086-AD77308F3920}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheOrigin.Framework.AOP</RootNamespace>
+    <AssemblyName>TheOrigin.Framework.AOP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AOPServiceProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DefaultAssemblyFactory.cs" />
+    <Compile Include="DefaultConstructorFactory.cs" />
+    <Compile Include="DefaultInvocationHandler.cs" />
+    <Compile Include="DefaultMethodFactory.cs" />
+    <Compile Include="DefaultModuleFactory.cs" />
+    <Compile Include="DefaultPropertyFactory.cs" />
+    <Compile Include="DefaultTypeFactory.cs" />
+    <Compile Include="DynamicProxyBase.cs" />
+    <Compile Include="DynamicProxyService.cs" />
+    <Compile Include="EmptyInterceptorRegistration.cs" />
+    <Compile Include="IAssemblyFactory.cs" />
+    <Compile Include="IConstructorFactory.cs" />
+    <Compile Include="IDynamicProxyService.cs" />
+    <Compile Include="IInterceptor.cs" />
+    <Compile Include="IInterceptorRegistration.cs" />
+    <Compile Include="IInvocationHandler.cs" />
+    <Compile Include="IMethodBodyFactory.cs" />
+    <Compile Include="IMethodFactory.cs" />
+    <Compile Include="IModuleFactory.cs" />
+    <Compile Include="InterceptorRegistration.cs" />
+    <Compile Include="InterceptorRegistrationService.cs" />
+    <Compile Include="IPropertyFactory.cs" />
+    <Compile Include="IPropertyInterceptor.cs" />
+    <Compile Include="ISimpleDynamicProxyService.cs" />
+    <Compile Include="ITypeFactory.cs" />
+    <Compile Include="MethodBodyImplFactories\DefaultConstructorMethodBodyFactory.cs" />
+    <Compile Include="MethodBodyImplFactories\PropertyAutoImplGetMethodBodyFactory.cs" />
+    <Compile Include="MethodBodyImplFactories\PropertyAutoImplSetMethodBodyFactory.cs" />
+    <Compile Include="MethodSelector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyModes.cs" />
+    <Compile Include="PropertyOpType.cs" />
+    <Compile Include="ProxyInvocation.cs" />
+    <Compile Include="ProxyRegistration.cs" />
+    <Compile Include="ProxyServiceConfiguration.cs" />
+    <Compile Include="SimpleDynamicProxyBase.cs" />
+    <Compile Include="SimpleDynamicProxyService.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DependencyInjection\DependencyInjection.csproj">
+      <Project>{dae12d00-0b84-4269-94fc-897d80417b99}</Project>
+      <Name>DependencyInjection</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
